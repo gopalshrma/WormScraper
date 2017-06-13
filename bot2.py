@@ -7,7 +7,7 @@ with open('url.txt') as f:
     ScraperURL = f.read()
     ScraperURL = ScraperURL.split("\n")
 
-file = open("text.txt","w")
+file = open("worm.txt","w",encoding="utf-8")
 for aa in ScraperURL:
     SourceURL=aa
     source = urllib.request.urlopen(SourceURL).read()
@@ -17,10 +17,12 @@ for aa in ScraperURL:
     file.write("\n\n\n\n")
     for paragraph in soup.find_all('p'):
         if(paragraph.string!=None):
-            file.write(paragraph.string)
-            file.write("\n\n")
+            ab = (paragraph.string)
+            file.write(ab)
+            file.write("\n\n\n\n")
         else:
             continue
     file.write("\n\n\n\n")
     print("Done with Chapter\n")
+print("All done with worm. Use Calibre to convert into preferred format. :]\n")
 file.close()
