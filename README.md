@@ -5,8 +5,11 @@ A web scraper to obtain a text file for Wildbow's Worm which can be found [here]
 1. [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 2. [lxml parser](http://lxml.de/)
 
-You can install both with pip.
-If you cloned the repo you can simply run pip install -r requirements.txt
+Included in requirements.txt
+Can be installed with
+```
+pip install -r requiremennts.txt
+```
 
 ## Instructions
 
@@ -28,4 +31,4 @@ python bot2.py
 ```
 This generates worm.txt which the final text file.
 
-5. Convert the text file with calibre into desired format. 
+5. Convert the text file with calibre into desired format.
