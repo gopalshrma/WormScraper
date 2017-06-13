@@ -6,9 +6,26 @@ A web scraper to obtain a text file for Wildbow's Worm which can be found [here]
 2. [lxml parser](http://lxml.de/)
 
 You can install both with pip.
+If you cloned the repo you can simply run pip install -r requirements.txt
 
 ## Instructions
 
-1. Run bot.py first to general url.txt which is used by bot2.py.
-2. Run bot2.py to generate the text file.
-3. Use calibre to convert into required format.
+1. Clone the repo whereever required with
+```
+git clone https://github.com/gopal131072/WormScraper
+```
+2. Make sure all dependencies are installed.
+
+3. Run bot.py with
+```
+python bot.py
+```
+This generates url.txt which contains all the links to parse.
+
+4. Run bot2.py with
+```
+python bot2.py
+```
+This generates worm.txt which the final text file.
+
+5. Convert the text file with calibre into desired format. 
