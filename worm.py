@@ -5,7 +5,7 @@ source = urllib.request.urlopen('https://parahumans.wordpress.com/table-of-conte
 
 soup = bs.BeautifulSoup(source,'lxml')
 
-file = open("url.txt","w")
+file = open("worm-sitemap.txt","w")
 print("File opened\n")
 for url in soup.find_all('a'):
     current = url.get('href')

@@ -1,13 +1,16 @@
 import bs4 as bs
 import urllib.request
+import sys
 
 ScraperURL = []
 
-with open('url.txt') as f:
+option = sys.argv[1]
+
+with open(option + '-sitemap.txt') as f:
     ScraperURL = f.read()
     ScraperURL = ScraperURL.split("\n")
 
-file = open("worm.txt","w",encoding="utf-8")
+file = open(option + ".txt","w",encoding="utf-8")
 for aa in ScraperURL:
     SourceURL=aa
     source = urllib.request.urlopen(SourceURL).read()
@@ -17,9 +20,9 @@ for aa in ScraperURL:
     file.write("\n\n\n\n")
     for paragraph in soup.find_all('p'):
         if(paragraph.string!=None):
-            ab = (paragraph.string)
-            file.write(ab)
-            file.write("\n\n\n\n")
+            paragh = (paragraph.string)
+            file.write(paragh)
+            file.write("\n\n")
         else:
             continue
     file.write("\n\n\n\n")

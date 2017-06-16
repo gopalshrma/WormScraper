@@ -1,2 +1,4 @@
 # Text File output#
 *.txt
+*.epub
+*.tar.gz
