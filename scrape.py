@@ -1,10 +1,13 @@
 import bs4 as bs
 import urllib.request
 import sys
+import os
 
 ScraperURL = []
 
 option = sys.argv[1]
+
+os.system("python " + option + ".py")
 
 with open(option + '-sitemap.txt') as f:
     ScraperURL = f.read()
