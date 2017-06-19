@@ -20,61 +20,16 @@ A web scraper to obtain a text file for Wildbow's Worm or Pact or Twig.
   ```
 2. Make sure all dependencies are installed.
 
-3. Run worm.py or pact.py or twig.py depending on which web serial you want with
-<<<<<<< HEAD
-  ```
-  python worm.py
-  ```
-  or
-  ```
-  python pact.py
-  ```
-  or
-  ```
-  python twig.py
-  ```
-  This generates the sitemap which contains all the links to parse.
+3. Run scrape.py with an option to define what book you want to scrape.
 
-  This was mostly for my convenience and understanding. If you want to submit a pull request with the sitemap generation and scraping merged I'll gladly accept it.
-
-4. Run scrape.py with
   ```
   python scrape.py option
   ```
-  where option is either "worm" or "pact" or "twig"
+  where option is one of "worm", "pact" or "twig"
 
-  This generates "option.txt" which the final text file.
+  Ex.
 
-5. Convert the text file into desired format. Personally I recommend [calibre](https://calibre-ebook.com/).
-
-6. You can now delete the sitemap if you don't need it.
-
-=======
-```
-python worm.py
-```
-or
-```
-python pact.py
-```
-or
-```
-python twig.py
-```
-This generates the sitemap which contains all the links to parse.
-
-This was mostly for my convenience and understanding. If you want to submit a pull request with the sitemap generation and scraping merged I'll gladly accept it.
-
-4. Run scrape.py with
-```
-python scrape.py option
-```
-where option is either "worm" or "pact" or "twig"
-
-This generates "option.txt" which the final text file.
-
-5. Convert the text file into desired format. Personally I recommend [calibre](https://calibre-ebook.com/).
-
-6. You can now delete the sitemap if you don't need it.
-
-7. You can periodically run twig.py to update the sitemap and scrape it as the serial is written.
+  ```
+  python scrape.py worm
+  ```
+4. This will generate two files, the url file which will be stored as book-sitemap.txt followed by the actual scraped text which (worm.txt or pact.txt or twig.txt).
