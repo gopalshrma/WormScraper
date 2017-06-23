@@ -41,7 +41,7 @@ A web scraper to obtain a text file for Wildbow's Worm or Pact or Twig.
 
 ## Screenshot
 
-![Here's a screenshot of the output.](https://raw.githubusercontent.com/gopal131072/WormScraper/screenshot.png)
+![Here's a screenshot of the output.](https://github.com/gopal131072/WormScraper/blob/master/screenshot.png)
 
 The output can be formatted to your liking by changing line, paragraph and page breaks in scrape.py.
 You can also change these while converting it to a readable format on Calibre/another software.
