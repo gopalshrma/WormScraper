@@ -37,3 +37,11 @@ A web scraper to obtain a text file for Wildbow's Worm or Pact or Twig.
 5. You can keep the sitemap if you want to update it and scrape text later or you can just delete it.
 
 6. I didn't merge generation of sitemap and scraping of the site in one file because I wanted to experiment with the sitemap, if you feel this project would be better served by merging them please feel free to submit a pull request.
+
+
+## Screenshot
+
+![Here's a screenshot of the output.](https://raw.githubusercontent.com/gopal131072/WormScraper/screenshot.png)
+
+The output can be formatted to your liking by changing line, paragraph and page breaks in scrape.py.
+You can also change these while converting it to a readable format on Calibre/another software.
