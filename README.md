@@ -32,14 +32,17 @@ A web scraper to obtain a text file for Wildbow's Worm or Pact or Twig.
   ```
   python scrape.py worm
   ```
-4. This will generate two files, the url file which will be stored as book-sitemap.txt followed by the actual scraped text file (worm.txt or pact.txt or twig.txt).
+4. This will generate two files, the url file which will be stored as book-sitemap.txt followed by the actual scraped text file (worm.html or pact.html or twig.html).
 
-5. You can keep the sitemap if you want to update it and scrape text later or you can just delete it.
+5. You can keep the sitemap if you want to update it and scrape more text, later or you can just delete it.
 
-6. I didn't merge generation of sitemap and scraping of the site in one file because I wanted to experiment with the sitemap, if you feel this project would be better served by merging them please feel free to submit a pull request.
+6. The default classes in the html output correspond to the pagebreak auto detection regular expression in calibre, if you're using another software I'd recommend you change the classes in scrape.py. (I've included a screenshot of the default output.)
 
+7. The scrape file is abstracted enough to be run on other url files, feel free to experiment with that. The URL's need to be seperated by new lines in a text document for the scipt to work. 
 
-## Screenshot
+8. I didn't merge generation of sitemap and scraping of the site in one file because I wanted to experiment with the scrape script, if you feel this project would be better served by merging them please feel free to submit a pull request.
+
+## Default Output
 
 ![Here's a screenshot of the output.](https://github.com/gopal131072/WormScraper/blob/master/screenshot.png)
 
