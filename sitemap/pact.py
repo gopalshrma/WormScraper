@@ -1,5 +1,7 @@
 import bs4 as bs
 import urllib.request
+import sys
+import os.path
 
 # Reads the table of contents to try and generate a sitemap for the serial.
 
@@ -11,8 +13,13 @@ source = urllib.request.urlopen('https://pactwebserial.wordpress.com/table-of-co
 soup = bs.BeautifulSoup(source,'lxml')
 
 # Opens a text file and writes all required URL's into it.
-file = open("pact-sitemap.txt","w")
-print("File opened\n")
+if(os.path.isfile("pact-sitemap.txt")):
+    print("Sitemap already exists, either from a previous scrape, or a custom sitemap.")
+    print("Not generating sitemap.")
+    sys.exit(0)
+else:
+    file = open("pact-sitemap.txt","w")
+    print("File opened\n")
 
 # Finds all anchor tags and gets the links they point to.
 for url in soup.find_all('a'):

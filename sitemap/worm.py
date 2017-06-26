@@ -1,5 +1,7 @@
 import bs4 as bs
 import urllib.request
+import sys
+import os.path
 
 # Reads the table of contents to try and generate a sitemap for the serial.
 
@@ -11,8 +13,14 @@ source = urllib.request.urlopen('https://parahumans.wordpress.com/table-of-conte
 soup = bs.BeautifulSoup(source,'lxml')
 
 # Opens a text file and writes all required URL's into it.
-file = open("worm-sitemap.txt","w")
-print("File opened\n")
+# If the sitemap already exists, the script simply exits without an error.
+if(os.path.isfile("worm-sitemap.txt")):
+    print("Sitemap already exists, either from a previous scrape, or a custom sitemap.")
+    print("Not generating sitemap.")
+    sys.exit(0)
+else:
+    file = open("worm-sitemap.txt","w")
+    print("File opened\n")
 
 # Finds all anchor tags and gets the links they point to.
 for url in soup.find_all('a'):
