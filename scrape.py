@@ -72,9 +72,9 @@ for url in ScraperURL:
 # Writes the text to output file.
             paragh = (paragraph.string)
 # Avoiding a few words by making sure they're not the current string extracted.
-            listtoavoid = ["next chapter","connecting to %s"]
+            listtoavoid = ["Next Chapter","Connecting to %s",""]
             if paragh in listtoavoid:
-                print()
+                print("Avoiding word.")
             else:
                 file.write("<p>" + paragh + "</p>")
         else:
