@@ -1,4 +1,0 @@
-#No Version Requirements as of the latest iteration
-beautifulsoup4
-lxml
-requests

@@ -2,3 +2,7 @@
 *.txt
 *.epub
 *.tar.gz
+
+# HTML File output#
+*.html
+*.js
