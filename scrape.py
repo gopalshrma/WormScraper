@@ -11,6 +11,18 @@ ScraperURL = []
 # Changes input to lower case for ease of use.
 option = sys.argv[1].lower()
 
+if len(sys.argv) > 2:
+    # The directory to store the output file in.
+    directory = sys.argv[2]
+else:
+    # If no directory is supplied default to the current directory.
+    directory = os.getcwd()
+
+validdir = os.path.isdir(directory)
+
+if validdir is False:
+    print("Invalid directory. Enter a valid directory.")
+
 while option not in ['worm','pact','twig']:
     print("I'm not familiar with that particular web series. Current support is for worm, pact, and twig.\n")
     print("Please specify one of the works that are supported or use Ctrl + c to terminate.\n")
@@ -33,8 +45,8 @@ with open(option + '-sitemap.txt') as f:
 """
 
 Turns out some anchor tags are repeated for no reason at all (Atleast no real reason that I can think of)
-in both worm's and pact's table of contents, I was presented with two options, either rescrape from sitemap
-which would make the entire thing flow in reverse order because sitemap updates as story updates, or remove
+in both worm's and pact's table of contents, so I could either rescrape from sitemap which would make
+the entire thing flow in reverse order because sitemap updates as story updates, or remove
 duplicates from the list while preserving order. Which is what this piece of code does.
 
 For future reference :
@@ -45,7 +57,7 @@ https://stackoverflow.com/questions/480214/how-do-you-remove-duplicates-from-a-l
 ScraperURL = list(OrderedDict.fromkeys(ScraperURL))
 
 # Opens the file the output is to be written in.
-file = open(option + ".html","w",encoding="utf-8")
+file = open(directory + "/" + option + ".html","w",encoding="utf-8")
 
 # Run scraper for every entry in the dictionary.
 for url in ScraperURL:
@@ -72,8 +84,8 @@ for url in ScraperURL:
 # Writes the text to output file.
             paragh = (paragraph.string)
 # Avoiding a few words by making sure they're not the current string extracted.
-            listtoavoid = ["Next Chapter","Connecting to %s",""]
-            if paragh in listtoavoid:
+            listtoavoid = ["Next Chapter","Connecting to %s","<strike>","Fill in your details below"]
+            if any(lta in paragh for lta in listtoavoid):
                 print("Avoiding word.")
             else:
                 file.write("<p>" + paragh + "</p>")
@@ -82,4 +94,6 @@ for url in ScraperURL:
 #End of chapter shows in console output for user convenience.
     print("Done with Chapter\n")
 print("All done with " + option + ". Use Calibre to convert into preferred format. :]\n")
+print("Removing sitemap files now.")
+os.system("rm " + option + "-sitemap.txt")
 file.close()
