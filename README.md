@@ -9,7 +9,7 @@ A web scraper to obtain a text file for Wildbow's Worm or Pact or Twig.
   Included in requirements.txt
   Can be installed with
   ```
-  pip install -r requiremennts.txt
+  pip install -r requirements.txt
   ```
 
 ## Instructions
